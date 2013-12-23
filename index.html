@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Scorched Santa">
+  <meta name="author" content="alvare">
+  <link rel="shortcut icon" href="favicon.png">
+  <title>Scorched Santa</title>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="js/lodash.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/Perlin.js"></script>
+  <script type="text/javascript" src="lib/impact/impact.js"></script>
+  <script type="text/javascript" src="lib/game/main.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <canvas id="canvas" class="screen"></canvas>
+    <div id="hud" class="screen">
+      <div id="scoreText" class="hudText">Score: <span id="score">0</span></div>
+      <div id="timerText" class="hudText">Time: <span id="time">0</span></div>
+    </div>
+    <div id="start" class="screen"><div id="play"></div></div>
+    <div id="end" class="screen hidden">
+      <span class="you wintext">You</span>
+      <span class="has wintext">has</span>
+      <span class="won wintext">WON</span>
+      <span class="winscoretext wintext">Score: <span class="winscore"></span></span>
+      <div id="playagain"></div>
+    </div>
+  </div>
+  <div id="test"></div>
+</body>
+</html>

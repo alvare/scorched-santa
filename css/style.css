@@ -1,0 +1,86 @@
+.hidden {
+  display: none;
+}
+
+.screen {
+  position: absolute;
+  width: 900px;
+  height: 600px;
+}
+
+.hudText {
+  display: inline-block;
+  position: absolute;
+  margin: 1em;
+  font: 16pt Arial;
+}
+
+#start {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#play {
+  width: 277px;
+  height: 158px;
+  background-image: url(win-button.png);
+  margin: 0 auto;
+  margin-top: 213px;
+  cursor: pointer;
+}
+
+#playagain {
+  width: 50px;
+  height: 57px;
+  background-image: url(play-again.png);
+  margin: 1em;
+  float: right;
+  cursor: pointer;
+}
+
+#scoreText {
+  right: 0px;
+}
+
+#end {
+  background-color: rgba(0, 0, 0, 0.66);
+  transition: opacity 600ms ease-in;
+    -moz-transition: opacity 600ms ease-in;
+    -webkit-transition: opacity 600ms ease-in;
+  opacity: 0;
+}
+
+#end.active {
+  opacity: 1;
+}
+
+.wintext {
+  color: white;
+  margin: 0 auto;
+  display: table;
+  font: 50pt 'Times New Roman';
+  transition: transform 1s ease-out;
+    -webkit-transition: -webkit-transform 1s ease-out;
+    -moz-transition: -moz-transform 1s ease-out;
+  transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+}
+
+.wintext.active {
+  transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+}
+
+.wintext.you {
+  margin-top: 125px;
+}
+
+.winscore {
+  font-size: 45pt;
+}
+
+.winscoretext {
+  display: block;
+  width: 290px;
+}
