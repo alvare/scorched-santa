@@ -1,10 +1,16 @@
 $(function(){
+  var updateTimeLoop;
+
+  $("canvas").on("start", function(){
+    updateTimeLoop = setInterval(updateTime, 500);
+  });
+
   $("canvas").on("updatehud", function(){
     $("#score").html(ig.game.score);
   });
 
   $("canvas").on("end", function(){
-    ig.game.paused = true;
+    clearInterval(updateTimeLoop);
     $("#end").removeClass("hidden");
     $(".winscore").numberTo(ig.game.score);
     setTimeout(function(){
@@ -13,26 +19,16 @@ $(function(){
     });
   });
 
-  $("canvas").on("start", function(){
-    ig.game.time.set(60);
-    updateTime();
-  });
+  $("#play").on("click", startFn);
+
+  $("#playagain").on("click", startAgain);
 
   function updateTime(){
     var time = -1 * parseInt(ig.game.time.delta());
     $("#time").html(time);
-    if(time <= 0){
-      $("canvas").trigger("end");
-    } else {
-      setTimeout(updateTime, 500);
-    }
   }
 
-  $("#play").on("click", start);
-
-  $("#playagain").on("click", startAgain);
-
-  function start(){
+  function startFn(){
     $("#start").addClass("hidden");
     ig.main("#canvas", GameScorchedSanta, 60, 900, 600, 1);
   }
@@ -47,12 +43,15 @@ $(function(){
 
 (function($){
   $.fn.numberTo = function(n){
-    var delay = 5;
+    var delay = 1;
     var $that = $(this);
+    var clk = setInterval(clock, 100);
+
     function update(){
       $that.html(parseInt(Math.random() * 500));
       if(delay > 900){
         $that.html(n);
+        clearInterval(clk);
       } else {
         setTimeout(update, delay);
       }
@@ -60,9 +59,7 @@ $(function(){
     update();
 
     function clock(){
-      delay *= 1.1;
-      setTimeout(clock, 100);
+      delay *= 1.2;
     }
-    clock();
   };
 })(jQuery);
